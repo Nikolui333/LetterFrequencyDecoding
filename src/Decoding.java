@@ -97,16 +97,8 @@ public class Decoding {
             for (int k =0;k<arrNum.length;k++){
                 if(arrNum[i]==arrNum[k]&&i!=k){
                     arrNum[i]++; //если это не так, добавляем 1 к значению колличества одной из букв, для того, чтобы одна буква не повторилась 2 раза
-                    System.out.print("arrNum[i]=" + arrNum[i]+" ");
-                    System.out.print("arrNum[j]=" + arrNum[k]+" ");
-                    System.out.print(arrNum[i] + " ");
-                    System.out.println();
                 }
             }
-        }
-
-        for (int i =0;i<arrNum.length;i++){
-            System.out.print(arrNum[i]+" ");
         }
 
         char [] b = sorting(arr_ru,arrNum); //сортировка букв в порядке возрастания их колличества в тексте
@@ -180,9 +172,7 @@ public class Decoding {
             }
         }
 
-        for (int i =0;i<b.length;i++){
-            System.out.print(b[i] + " ");
-        }
+
 
         return b;
     }
