@@ -52,10 +52,15 @@ public class Decoding {
                 a = scanner.nextInt();
                 if (a==2) {
                     go(this.arr_frequency4);
+                    System.out.println();
+                    System.out.println("Если документ расшифрован, нажмите 1, если нет, нажмите 2");
+                    a = scanner.nextInt();
+                    if (a==2) {
+                        go(this.arr_frequency5);
+                    }
                 }
             }
         }
-
     }
 
     public void go(char [] arr_frequency) { // основной метод, в котором происходит работа с зашифрованным файлом
@@ -89,11 +94,19 @@ public class Decoding {
         }
 
         for (int i =0;i<arrNum.length;i++){ //проверка на то, что всех букв содержится разное колличество
-            for (int j =0;j<arrNum.length;j++){
-                if(arrNum[i]==arrNum[j]){
+            for (int k =0;k<arrNum.length;k++){
+                if(arrNum[i]==arrNum[k]&&i!=k){
                     arrNum[i]++; //если это не так, добавляем 1 к значению колличества одной из букв, для того, чтобы одна буква не повторилась 2 раза
+                    System.out.print("arrNum[i]=" + arrNum[i]+" ");
+                    System.out.print("arrNum[j]=" + arrNum[k]+" ");
+                    System.out.print(arrNum[i] + " ");
+                    System.out.println();
                 }
             }
+        }
+
+        for (int i =0;i<arrNum.length;i++){
+            System.out.print(arrNum[i]+" ");
         }
 
         char [] b = sorting(arr_ru,arrNum); //сортировка букв в порядке возрастания их колличества в тексте
@@ -144,7 +157,7 @@ public class Decoding {
     }
 
     public char[] sorting(char[] a, int[] num) { //сортировка букв в порядке возрастания их колличества в тексте
-        // присваиваем массив с колличеством разных букв
+
         int[] noSortNum = new int[33];
 
         for (int i =0;i<noSortNum.length;i++){
@@ -159,12 +172,16 @@ public class Decoding {
             b[i] = a[i];
         }
 
-        for (int i = 0; i < noSortNum.length; i++) {
+        for (int i = 0; i < noSortNum.length; i++) { //сортировка букв в соответствии с их колличеством
             for (int j = 0; j < newNum.length; j++) {
                 if (newNum[j] == noSortNum[i]) {
                     b[j] = a[i];
                 }
             }
+        }
+
+        for (int i =0;i<b.length;i++){
+            System.out.print(b[i] + " ");
         }
 
         return b;
